@@ -57,11 +57,15 @@ namespace SeleniumTest
         {
             appURL = "http://www.bing.com/";
 
+            string chromepath= Environment.GetEnvironmentVariable("ChromeWebDriver");
+            string chromeexe = "chromedriver.exe";
+            string fullchromeexe = chromepath + chromeexe;
+
             string browser = "Chrome";
             switch (browser)
             {
                 case "Chrome":
-                    driver = new ChromeDriver();
+                    driver = new ChromeDriver(fullchromeexe);
                     break;
                 case "Firefox":
                     driver = new FirefoxDriver();
